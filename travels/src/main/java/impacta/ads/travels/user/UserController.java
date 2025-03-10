@@ -25,14 +25,14 @@ public class UserController {
     @GetMapping("/users/new")
     public String showNewForm(Model model) {
         model.addAttribute("user", new User());
-        model.addAttribute("pageTitle", "Add New User");
+        model.addAttribute("pageTitle", "Adicionar novo viajante");
         return "user_form";
     }
 
     @PostMapping("/users/save")
     public String saveUser(User user, RedirectAttributes ra) {
         service.save(user);
-        ra.addFlashAttribute("message", "The user has been saved successfully.");
+        ra.addFlashAttribute("message", "Usuário adicionado com sucesso.");
         return "redirect:/users";
     }
 
@@ -41,7 +41,7 @@ public class UserController {
         try {
             User user = service.get(id);
             model.addAttribute("user", user);
-            model.addAttribute("pageTitle", "Edit User (ID: " + id + ")");
+            model.addAttribute("pageTitle", "Atualizar viajante (ID: " + id + ")");
 
             return "user_form";
         } catch (UserNotFoundException e) {
@@ -54,7 +54,7 @@ public class UserController {
     public String deleteUser(@PathVariable("id") Integer id, RedirectAttributes ra) {
         try {
             service.delete(id);
-            ra.addFlashAttribute("message", "The user ID " + id + " has been deleted.");
+            ra.addFlashAttribute("message", "Viajante ID " + id + " foi deletado.");
         } catch (UserNotFoundException e) {
             ra.addFlashAttribute("message", e.getMessage());
         }

@@ -16,13 +16,13 @@ public class User {
     @Column(length = 15, nullable = false)
     private String password;
 
-    @Column(length = 45, nullable = false, name = "first_name")
-    private String firstName;
+    @Column(length = 45, nullable = false, name = "nome")
+    private String nome;
 
-    @Column(length = 45, nullable = false, name = "last_name")
-    private String lastName;
+    @Column(length = 45, nullable = false, name = "destino")
+    private String destino;
 
-    private boolean enabled;
+    private boolean confirmado;
 
     public Integer getId() {
         return id;
@@ -48,20 +48,20 @@ public class User {
         this.password = password;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getNome() {
+        return nome;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getDestino() {
+        return destino;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setDestino(String destino) {
+        this.destino = destino;
     }
 
     @Override
@@ -70,17 +70,17 @@ public class User {
                 "id=" + id +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
+                ", nome='" + nome + '\'' +
+                ", destino='" + destino + '\'' +
                 '}';
     }
 
 
-    public boolean isEnabled() {
-        return enabled;
+    public boolean isConfirmado() {
+        return confirmado;
     }
 
-    public void setEnabled(boolean enabled) {
-        this.enabled = enabled;
+    public void setConfirmado(boolean confirmado) {
+        this.confirmado = confirmado;
     }
 }
